@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?love,romantic') no-repeat center center/cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            position: relative;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+            margin-right: 10px;
+        }
+        .yes:hover {
+            background-color: #e91e63;
+        }
+        .no {
+            background-color: #666;
+            color: white;
+            position: absolute;
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ffeb3b;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love me? 💖</h1>
+        <div class="buttons">
+            <button class="yes" onclick="showLove()">Yes</button>
+            <button class="no" onmouseover="moveNoButton()">No</button>
+        </div>
+        <p id="message">I knew that you love me! ❤️</p>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById("message").style.display = "block";
+        }
+
+        function moveNoButton() {
+            let button = document.querySelector(".no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
